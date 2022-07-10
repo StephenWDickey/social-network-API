@@ -57,6 +57,9 @@ const thoughtController = {
     })
   },
 
+
+
+
   addReaction({ params, body }, res) {
     Thought.findByIdAndUpdate({ _id: params.thoughtId }, { $addToSet: { reactions: body } }, { new: true, runValidators: true })
     .then(dbThoughtData => res.json(dbThoughtData))
